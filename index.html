@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Perdura Studio — Pre-launch</title>
+<title>Perdura Studio — Fine Watch Care</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,10 +147,7 @@
   }
 
   /* Pillars */
-  .perdura-pillars {
-    width: 100%;
-    margin-top: 4px;
-  }
+  .perdura-pillars { width: 100%; margin-top: 4px; }
   .perdura-pillars-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -160,10 +157,7 @@
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
   }
-  .perdura-pillar {
-    padding: 30px 18px;
-    text-align: center;
-  }
+  .perdura-pillar { padding: 30px 18px; text-align: center; }
   .perdura-pillar + .perdura-pillar { border-left: 1px solid var(--rule); }
   .perdura-pillar-label {
     font-family: 'Inter Tight', sans-serif;
@@ -229,7 +223,7 @@
     text-align: center;
     display: none;
   }
-  .perdura-input.error + .perdura-error { display: block; }
+  .perdura-input.error ~ .perdura-error { display: block; }
 
   .perdura-cta {
     margin-top: 24px;
@@ -382,15 +376,27 @@
       </div>
     </div>
 
-    <!-- Form -->
+    <!-- Form — connected to Brevo -->
     <div class="perdura-form-wrap">
-      <form class="perdura-form" id="perdura-form" novalidate>
+      <form
+        class="perdura-form"
+        id="perdura-form"
+        method="POST"
+        action="https://3d091069.sibforms.com/serve/MUIFAPycRh3x3GuD7ui3jPpDijH_GzOtcXkH25e5TvAKnjQIzWTTsauq435Pvh4Oj5i8wqzmWeHmFOIp0qpJBQI1uz186bBHn-xlQFJGVgVk_5xbYahjYyVzePHzK4dE2BacSLCnnuN5HdaSJEOF0c4yC8OFTydh3fqgLLfVZ91cE2i6HxFwzMQfb9ECU5qC8KkZWKUJ3Ha6HTsHkg=="
+        novalidate
+      >
+        <!-- Required hidden fields for Brevo -->
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <!-- Honeypot anti-spam field — must remain empty -->
+        <input type="text" name="email_address_check" value="" style="display:none" tabindex="-1" autocomplete="off">
+
         <div class="perdura-form-label">Your email address</div>
         <input
           class="perdura-input"
           id="perdura-email"
           type="email"
-          name="email"
+          name="EMAIL"
           placeholder="your@email.com"
           autocomplete="email"
           required
@@ -424,11 +430,11 @@
 
 <script>
   (function () {
-    var form    = document.getElementById('perdura-form');
-    var input   = document.getElementById('perdura-email');
-    var error   = document.getElementById('perdura-error');
-    var cta     = document.getElementById('perdura-cta');
-    var ctaLbl  = document.getElementById('perdura-cta-label');
+    var form   = document.getElementById('perdura-form');
+    var input  = document.getElementById('perdura-email');
+    var error  = document.getElementById('perdura-error');
+    var cta    = document.getElementById('perdura-cta');
+    var ctaLbl = document.getElementById('perdura-cta-label');
     var success = document.getElementById('perdura-success');
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -437,19 +443,16 @@
     });
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
       var v = (input.value || '').trim();
       if (!EMAIL_RE.test(v)) {
+        e.preventDefault();
         input.classList.add('error');
         return;
       }
+      // Valid email — show loading state and let Brevo handle the submission
       cta.disabled = true;
-      ctaLbl.textContent = 'Reserving';
-      // Replace this timeout with a real submission to your provider.
-      setTimeout(function () {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      }, 850);
+      ctaLbl.textContent = 'Reserving your spot';
+      // Form submits natively to Brevo — page will redirect to Brevo confirmation
     });
   })();
 </script>
