@@ -442,17 +442,16 @@
       input.classList.remove('error');
     });
 
-    form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function (e) {
       var v = (input.value || '').trim();
       if (!EMAIL_RE.test(v)) {
         e.preventDefault();
         input.classList.add('error');
         return;
       }
-      // Valid email — show loading state and let Brevo handle the submission
       cta.disabled = true;
       ctaLbl.textContent = 'Reserving your spot';
-      // Form submits natively to Brevo — page will redirect to Brevo confirmation
+      // Let the form submit natively to provider — do NOT preventDefault here
     });
   })();
 </script>
