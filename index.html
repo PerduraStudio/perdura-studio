@@ -96,6 +96,8 @@
     font-weight: 500;
     color: var(--tobacco);
   }
+  .perdura-headline .mobile-only { display: none; }
+  .perdura-headline .desktop-only { display: inline; }
   .perdura-sub {
     font-family: 'Inter Tight', sans-serif;
     font-weight: 300;
@@ -263,7 +265,9 @@
     .perdura-wordmark { font-size: 9px; letter-spacing: 0.16em; }
     .perdura-prelaunch { font-size: 9px; letter-spacing: 0.16em; }
     .perdura-hero { padding: 40px 0; gap: 26px; }
-    .perdura-headline { font-size: 26px; }
+    .perdura-headline { font-size: 36px; }
+    .perdura-headline .desktop-only { display: none; }
+    .perdura-headline .mobile-only { display: inline; }
     .perdura-sub { font-size: 16px; }
     .perdura-pillars-grid { grid-template-columns: 1fr; }
     .perdura-pillar + .perdura-pillar {
@@ -294,9 +298,9 @@
   </header>
   <main class="perdura-hero">
 <h1 class="perdura-headline">
-      Your watch was built to outlast you.<br>
-      <em>Care for it</em> with the same precision.
-    </h1>
+  <span class="desktop-only">Your watch was built to outlast you.<br><em>Care for it</em> with the same precision.</span>
+  <span class="mobile-only">Built to outlast you.<br><em>Care for it.</em></span>
+</h1>
     <p class="perdura-sub">
       A watch built to last generations deserves more than an afterthought.
       Perdura Studio crafts precision care rituals for serious collectors —
