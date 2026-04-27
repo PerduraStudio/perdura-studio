@@ -4,11 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Perdura Studio — Fine Watch Care</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
   :root {
     --bg:        #FAF7F2;
@@ -21,7 +19,6 @@
     --btn-hover: #1A1411;
     --error:     #B85C44;
   }
-
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
@@ -33,7 +30,6 @@
     display: flex;
     flex-direction: column;
   }
-
   .perdura {
     width: 100%;
     max-width: 980px;
@@ -43,7 +39,6 @@
     display: flex;
     flex-direction: column;
   }
-
   .perdura-header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -54,7 +49,6 @@
   .perdura-header > :nth-child(1) { justify-self: start; }
   .perdura-header > :nth-child(2) { justify-self: center; }
   .perdura-header > :nth-child(3) { justify-self: end; }
-
   .perdura-wordmark {
     color: var(--fg);
     font-family: 'Inter Tight', sans-serif;
@@ -64,11 +58,9 @@
     text-transform: uppercase;
     white-space: nowrap;
   }
-
   .perdura-centermark { display: flex; align-items: center; gap: 10px; }
   .perdura-centermark .rule { width: 28px; height: 1px; background: var(--rule); display: inline-block; }
   .perdura-centermark .dot  { width: 3px; height: 3px; border-radius: 2px; background: var(--tobacco); display: inline-block; }
-
   .perdura-prelaunch {
     font-family: 'Inter Tight', sans-serif;
     font-weight: 500;
@@ -77,7 +69,6 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-
   .perdura-hero {
     flex: 1;
     display: flex;
@@ -89,28 +80,6 @@
     gap: 34px;
     width: 100%;
   }
-
-  .perdura-index {
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 400;
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .perdura-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 22px;
-    width: 100%;
-    max-width: 460px;
-    margin-top: -14px;
-  }
-  .perdura-brand .rule { flex: 1; height: 1px; background: var(--rule); }
-  .perdura-brand .perdura-wordmark { font-size: 13px; }
-
   .perdura-headline {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
@@ -127,7 +96,6 @@
     font-weight: 500;
     color: var(--tobacco);
   }
-
   .perdura-sub {
     font-family: 'Inter Tight', sans-serif;
     font-weight: 300;
@@ -139,7 +107,6 @@
     max-width: 520px;
     text-wrap: pretty;
   }
-
   .perdura-pillars { width: 100%; margin-top: 4px; }
   .perdura-pillars-grid {
     display: grid;
@@ -169,7 +136,6 @@
     color: var(--fg);
     letter-spacing: 0.01em;
   }
-
   .perdura-form-wrap { width: 100%; margin-top: 16px; }
   .perdura-form {
     width: 100%;
@@ -204,7 +170,6 @@
   .perdura-input::placeholder { color: var(--muted); }
   .perdura-input:focus { border-bottom-color: var(--fg); }
   .perdura-input.error { border-bottom-color: var(--error); }
-
   .perdura-error {
     margin-top: 10px;
     font-family: 'Inter Tight', sans-serif;
@@ -216,7 +181,6 @@
     display: none;
   }
   .perdura-input.error ~ .perdura-error { display: block; }
-
   .perdura-cta {
     margin-top: 24px;
     width: 100%;
@@ -235,6 +199,7 @@
     align-items: center;
     justify-content: center;
     gap: 14px;
+    white-space: nowrap;
   }
   .perdura-cta:hover { background: var(--btn-hover); }
   .perdura-cta:disabled { opacity: 0.7; cursor: wait; }
@@ -243,10 +208,10 @@
     width: 18px;
     height: 1px;
     background: var(--btn-fg);
+    flex-shrink: 0;
     transition: width 280ms cubic-bezier(.2,.7,.2,1);
   }
   .perdura-cta:hover .perdura-cta-bar { width: 28px; }
-
   .perdura-microcopy {
     margin-top: 18px;
     font-family: 'Inter Tight', sans-serif;
@@ -256,7 +221,6 @@
     text-align: center;
     font-style: italic;
   }
-
   .perdura-success {
     width: 100%;
     max-width: 460px;
@@ -275,7 +239,6 @@
     font-size: 13px;
     letter-spacing: 0.04em;
   }
-
   .perdura-footer {
     text-align: center;
     padding: 12px 0 22px;
@@ -287,29 +250,39 @@
     color: var(--muted);
   }
 
+  /* ── Mobile ── */
   @media (max-width: 720px) {
     .perdura { padding: 0 24px; }
-    .perdura-header { padding: 26px 0 0; }
+    .perdura-header {
+      padding: 20px 0 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
     .perdura-header > :nth-child(2) { display: none; }
-    .perdura-wordmark { font-size: 10px; }
-    .perdura-prelaunch { font-size: 9px; }
+    .perdura-header > :nth-child(3) { justify-self: end; }
+    .perdura-wordmark { font-size: 9px; letter-spacing: 0.16em; }
+    .perdura-prelaunch { font-size: 9px; letter-spacing: 0.16em; }
     .perdura-hero { padding: 40px 0; gap: 26px; }
-    .perdura-brand { gap: 14px; max-width: 320px; margin-top: -10px; }
-    .perdura-brand .perdura-wordmark { font-size: 11px; }
     .perdura-headline { font-size: 32px; }
     .perdura-sub { font-size: 16px; }
     .perdura-pillars-grid { grid-template-columns: 1fr; }
-    .perdura-pillar + .perdura-pillar { border-left: none; border-top: 1px solid var(--rule); }
+    .perdura-pillar + .perdura-pillar {
+      border-left: none;
+      border-top: 1px solid var(--rule);
+    }
     .perdura-pillar { padding: 24px 0; }
     .perdura-input { font-size: 16px; }
+    .perdura-cta {
+      letter-spacing: 0.08em;
+      font-size: 11px;
+      white-space: nowrap;
+    }
     .perdura-footer { padding: 10px 0 18px; }
   }
 </style>
 </head>
 <body>
-
 <div class="perdura">
-
   <header class="perdura-header">
     <span class="perdura-wordmark">PERDURA STUDIO</span>
     <span class="perdura-centermark" aria-hidden="true">
@@ -319,29 +292,17 @@
     </span>
     <span class="perdura-prelaunch">Pre-launch</span>
   </header>
-
   <main class="perdura-hero">
-
-    <div class="perdura-index">№ 01</div>
-
-    <div class="perdura-brand">
-      <span class="rule"></span>
-      <span class="perdura-wordmark">PERDURA STUDIO</span>
-      <span class="rule"></span>
-    </div>
-
-    <h1 class="perdura-headline">
+<h1 class="perdura-headline">
       Your watch was built to outlast you.<br>
       <em>Care for it</em> with the same precision.
     </h1>
-
     <p class="perdura-sub">
       A watch built to last generations deserves more than an afterthought.
       Perdura Studio crafts precision care rituals for serious collectors —
       ammonia-free, safe for every noble material, and crafted in Spain
       with the same precision built into every movement.
     </p>
-
     <div class="perdura-pillars">
       <div class="perdura-pillars-grid">
         <div class="perdura-pillar">
@@ -358,7 +319,6 @@
         </div>
       </div>
     </div>
-
     <div class="perdura-form-wrap">
       <form class="perdura-form" id="perdura-form" novalidate>
         <div class="perdura-form-label">Your email address</div>
@@ -378,60 +338,37 @@
         </button>
         <div class="perdura-microcopy">One email. No noise.</div>
       </form>
-
       <div class="perdura-success" id="perdura-success">
         <div class="perdura-success-pill">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M2 7.5 L5.5 11 L12 3.5"
-              stroke="#6B5E52" stroke-width="1.4"
-              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M2 7.5 L5.5 11 L12 3.5" stroke="#6B5E52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           <span>Reserved. We'll write once.</span>
         </div>
       </div>
     </div>
-
   </main>
-
   <footer class="perdura-footer">perdura.studio</footer>
-
 </div>
-
 <script>
   (function () {
     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUNFiNTZ97qGnG8zAV6T4G5EyTPACyHKl3pwSvhbOyzuyN1KR-Hr8CxEghn-wQ2bzB/exec';
-
     var form    = document.getElementById('perdura-form');
     var input   = document.getElementById('perdura-email');
     var cta     = document.getElementById('perdura-cta');
     var ctaLbl  = document.getElementById('perdura-cta-label');
     var success = document.getElementById('perdura-success');
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    input.addEventListener('input', function () {
-      input.classList.remove('error');
-    });
-
+    input.addEventListener('input', function () { input.classList.remove('error'); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
       var v = (input.value || '').trim();
-      if (!EMAIL_RE.test(v)) {
-        input.classList.add('error');
-        return;
-      }
-
+      if (!EMAIL_RE.test(v)) { input.classList.add('error'); return; }
       cta.disabled = true;
       ctaLbl.textContent = 'Reserving your spot';
-
       var formData = new FormData();
       formData.append('email', v);
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      })
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData })
       .finally(function () {
         form.style.display = 'none';
         success.style.display = 'block';
@@ -439,6 +376,5 @@
     });
   })();
 </script>
-
 </body>
 </html>
